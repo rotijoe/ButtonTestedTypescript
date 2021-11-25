@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import App from './App';
+import App, { addSpacesToCamelCase } from './App';
 
 test('button has correct behaviour', () => {
   render(<App />);
@@ -47,4 +47,18 @@ test('checkbox disables and enables button', () => {
   fireEvent.click(checkbox);
   expect(colourButton).toBeEnabled();
   expect(colourButton).not.toHaveStyle({ backgroundColor: 'gray' });
+});
+
+//unit function test
+
+describe('spaces before camel case capitl letters', () => {
+  test('Works for 0 inner capitals', () => {
+    expect(addSpacesToCamelCase('Red')).toBe('Red');
+  });
+  test('Works for 1 inner capitals', () => {
+    expect(addSpacesToCamelCase('MidnightBlue')).toBe('Midnight Blue');
+  });
+  test('Works for 2 inner capitals', () => {
+    expect(addSpacesToCamelCase('MediumVioletRed')).toBe('Medium Violet Red');
+  });
 });

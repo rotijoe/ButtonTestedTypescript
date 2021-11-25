@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+export function addSpacesToCamelCase(str: string) {
+  return str.replace(/\B([A-Z])\B/g, ' $1');
+}
+
 function App() {
   const [buttonColour, setButtonColour] = useState('red');
   const newButtonColour = buttonColour === 'red' ? 'blue' : 'red';
