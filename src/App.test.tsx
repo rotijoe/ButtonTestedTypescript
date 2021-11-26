@@ -6,24 +6,28 @@ test('button has correct behaviour', () => {
   render(<App />);
 
   //button name text
-  const colourButton = screen.getByRole('button', { name: 'Change to blue' });
+  const colourButton = screen.getByRole('button', {
+    name: 'Change to Midnight Blue',
+  });
 
   //cutton styled colour
-  expect(colourButton).toHaveStyle({ backgroundColor: 'red' });
+  expect(colourButton).toHaveStyle({ backgroundColor: 'MediumVioletRed' });
 
   //button click
   fireEvent.click(colourButton);
 
   //button colour changes
-  expect(colourButton).toHaveStyle({ backgroundColor: 'blue' });
+  expect(colourButton).toHaveStyle({ backgroundColor: 'MidnightBlue' });
 
   //button text changes
-  expect(colourButton).toHaveTextContent('Change to red');
+  expect(colourButton).toHaveTextContent('Change to Medium Violet Red');
 });
 
 test('initial conditions', () => {
   render(<App />);
-  const colourButton = screen.getByRole('button', { name: 'Change to blue' });
+  const colourButton = screen.getByRole('button', {
+    name: 'Change to Midnight Blue',
+  });
   const checkbox = screen.getByRole('checkbox');
 
   //check that button is enabled
@@ -35,7 +39,9 @@ test('initial conditions', () => {
 
 test('checkbox disables and enables button', () => {
   render(<App />);
-  const colourButton = screen.getByRole('button', { name: 'Change to blue' });
+  const colourButton = screen.getByRole('button', {
+    name: 'Change to Midnight Blue',
+  });
   const checkbox = screen.getByRole('checkbox', { name: 'Disable button' });
 
   //check that checkbox is enabled when button clicked
